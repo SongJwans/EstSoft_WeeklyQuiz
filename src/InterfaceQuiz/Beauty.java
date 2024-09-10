@@ -5,8 +5,8 @@ public class Beauty extends Product {
         super(name, price, weight);
     }
 
-    @Override
-    public int getDiscountAmount() {
-        return 10000;
-    }
+//    @Override
+//    public int getDiscountAmount() {
+//        return 10000;
+//    }
 }

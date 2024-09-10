@@ -6,8 +6,8 @@ public class Grocery extends Product {
         super(name, price, weight);
     }
 
-    @Override
-    public int getDiscountAmount() {
-        return 2000;
-    }
+//    @Override
+//    public int getDiscountAmount() {
+//        return 2000;
+//    }
 }
