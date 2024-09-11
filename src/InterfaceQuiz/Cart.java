@@ -8,15 +8,16 @@ public class Cart {
     }
 
     // 무게의 총합 계산
-    int calculateWeightAmount() {
+    private int calculateWeightAmount() {
         int weightAmount = 0;
         for (Product product : products) {
             weightAmount += product.weight;
         }
         return weightAmount;
     }
+
     // 가격의 총합 계산
-    int calculatePriceAmount() {
+    private int calculatePriceAmount() {
         int priceAmount = 0;
         for (Product product : products) {
             priceAmount += product.price;

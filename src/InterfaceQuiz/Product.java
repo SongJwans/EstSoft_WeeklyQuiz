@@ -1,6 +1,6 @@
 package InterfaceQuiz;
 
-public class Product implements Promotion {
+public abstract class Product implements Promotion {
     String name;
     int price;
     int weight;
@@ -13,12 +13,6 @@ public class Product implements Promotion {
 
     @Override
     public int getDiscountAmount() {
-        // instanceof 사용
-        if (this instanceof Beauty) {
-            return 10000;
-        } else if (this instanceof Grocery) {
-            return 2000;
-        }
         return 0;
     }
 }
