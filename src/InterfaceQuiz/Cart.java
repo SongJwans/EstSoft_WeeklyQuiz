@@ -1,7 +1,7 @@
 package InterfaceQuiz;
 
 public class Cart {
-    Product[] products;
+    private Product[] products;
 
     public Cart(Product[] products) {
         this.products = products;
@@ -11,7 +11,7 @@ public class Cart {
     private int calculateWeightAmount() {
         int weightAmount = 0;
         for (Product product : products) {
-            weightAmount += product.weight;
+            weightAmount += product.getWeight();
         }
         return weightAmount;
     }
@@ -20,13 +20,13 @@ public class Cart {
     private int calculatePriceAmount() {
         int priceAmount = 0;
         for (Product product : products) {
-            priceAmount += product.price;
+            priceAmount += product.getPrice();
         }
         return priceAmount;
     }
 
     // 배송비 총합 계산
-    public int calculateDeliveryCharge() {
+    protected int calculateDeliveryCharge() {
         int weightAmount = calculateWeightAmount();
         int priceAmount = calculatePriceAmount();
 
