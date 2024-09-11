@@ -13,7 +13,7 @@ public class Product implements Promotion {
 
     @Override
     public int getDiscountAmount() {
-//        instanceof 를 사용한다면 Beauty, Grocery에 있는 getDiscountAmount 삭제 가능
+        // instanceof 사용
         if (this instanceof Beauty) {
             return 10000;
         } else if (this instanceof Grocery) {
