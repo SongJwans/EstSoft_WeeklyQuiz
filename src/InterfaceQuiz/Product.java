@@ -10,6 +10,7 @@ public abstract class Product implements Promotion {
         this.price = price - getDiscountAmount();
         this.weight = weight;
     }
+
     public int getPrice() {
         return price;
     }
