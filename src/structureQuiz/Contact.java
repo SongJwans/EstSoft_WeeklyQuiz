@@ -1,8 +1,8 @@
 package structureQuiz;
 
 public class Contact {
-    protected String name;
-    protected String phoneNumber;
+    private String name;
+    private String phoneNumber;
 
     public Contact(String name, String phoneNumber) {
         this.name = name;

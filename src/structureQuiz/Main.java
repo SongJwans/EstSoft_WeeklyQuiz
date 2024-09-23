@@ -36,8 +36,7 @@ public class Main {
                     String personalPhoneNumber = scanner.nextLine();
                     System.out.print("관계를 입력하세요: ");
                     String relationship = scanner.nextLine();
-                    addressBook.addContact(new PersonalContact(personalName, personalPhoneNumber,
-                            relationship));
+                    addressBook.addContact(new PersonalContact(personalName, personalPhoneNumber, relationship));
                     break;
                 case 3:
                     addressBook.displayContacts();
