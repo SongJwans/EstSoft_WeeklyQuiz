@@ -1,11 +1,13 @@
 package InterfaceQuiz;
 
+import java.math.BigDecimal;
+
 public class Grocery extends Product {
-    public Grocery(String name, int price, int weight) {
+    public Grocery(String name, BigDecimal price, int weight) {
         super(name, price, weight);
     }
     @Override
-    public int getDiscountAmount() {
-        return 2000;
+    public BigDecimal getDiscountAmount() {
+        return BigDecimal.valueOf(2000);
     }
 }

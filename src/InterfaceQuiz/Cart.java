@@ -1,53 +1,37 @@
 package InterfaceQuiz;
 
+import static InterfaceQuiz.Policy.*;
+
+import java.math.BigDecimal;
+
 public class Cart {
     private Product[] products;
+    private BigDecimal totalPrice;
+    private int totalWeight;
+
 
     public Cart(Product[] products) {
         this.products = products;
-    }
-
-    // 무게의 총합 계산
-    private int calculateWeightAmount() {
-        int weightAmount = 0;
+        this.totalPrice = BigDecimal.ZERO;
         for (Product product : products) {
-            weightAmount += product.getWeight();
-        }
-        return weightAmount;
-    }
+            this.totalPrice = totalPrice.add(product.getPrice());
+            this.totalWeight += product.getWeight();
 
-    // 가격의 총합 계산
-    private int calculatePriceAmount() {
-        int priceAmount = 0;
-        for (Product product : products) {
-            priceAmount += product.getPrice();
         }
-        return priceAmount;
     }
 
     // 배송비 총합 계산
-    protected int calculateDeliveryCharge() {
-        int weightAmount = calculateWeightAmount();
-        int priceAmount = calculatePriceAmount();
-
-        int deliveryCharge;
-
-        // 무게에 따른 배송비
-        if (weightAmount < 3) {
-            deliveryCharge = 1000;
-        } else if (weightAmount >= 3 && weightAmount < 10) {
-            deliveryCharge = 5000;
-        } else {
-            deliveryCharge = 10000;
-        }
+    public int calculateDeliveryCharge() {
+        int deliveryCharge = getDeliveryChargeWeightPolicy(totalWeight);
 
         // 가격에 따른 배송비
-        if (priceAmount >= 30000 && priceAmount < 100000) {
-            deliveryCharge = deliveryCharge - 1000;
-        } else if (priceAmount >= 100000) {
-            deliveryCharge = 0;
+        if (totalPrice.compareTo(PRICE_POLICY_LEVEL_1) < 0) {
+            return deliveryCharge;
+        } else if (totalPrice.compareTo(PRICE_POLICY_LEVEL_2) < 0) {
+            return deliveryCharge - DELIVERY_DISCOUNT_AMOUNT;
         }
-
-        return deliveryCharge;
+        return DELIVERY_CHARGE_FREE;
     }
+
+
 }

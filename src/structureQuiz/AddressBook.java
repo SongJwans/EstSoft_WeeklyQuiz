@@ -22,6 +22,7 @@ public class AddressBook {
             System.out.println("연락처가 비어있습니다.");
         } else {
             for (Contact contact : contacts) {
+                // toString() 을 Override 를 통해
                 System.out.println(contact);
             }
         }

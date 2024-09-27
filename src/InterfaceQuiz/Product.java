@@ -1,18 +1,20 @@
 package InterfaceQuiz;
 
+import java.math.BigDecimal;
+
 public abstract class Product implements Promotion {
     private String name;
-    private int price;
+    private BigDecimal price;
     private int weight;
 
-    public Product(String name, int price, int weight) {
+    public Product(String name, BigDecimal price, int weight) {
         this.name = name;
-        this.price = price - getDiscountAmount();
+        this.price = price;
         this.weight = weight;
     }
 
-    public int getPrice() {
-        return price;
+    public BigDecimal getPrice() {
+        return price.subtract(getDiscountAmount());
     }
 
     public int getWeight() {
@@ -20,7 +22,7 @@ public abstract class Product implements Promotion {
     }
 
     @Override
-    public int getDiscountAmount() {
-        return 0;
+    public BigDecimal getDiscountAmount() {
+        return BigDecimal.ZERO;
     }
 }

@@ -3,18 +3,22 @@ package structureQuiz;
 import java.util.Scanner;
 
 public class Main {
+    static void printMenu() {
+        System.out.println("1. 비즈니스 연락처 추가");
+        System.out.println("2. 개인 연락처 추가");
+        System.out.println("3. 연락처 출력");
+        System.out.println("4. 연락처 검색");
+        System.out.println("5. 종료");
+        System.out.print("메뉴를 선택해주세요: ");
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         AddressBook addressBook = new AddressBook();
         boolean running = true;
 
         while (running) {
-            System.out.println("1. 비즈니스 연락처 추가");
-            System.out.println("2. 개인 연락처 추가");
-            System.out.println("3. 연락처 출력");
-            System.out.println("4. 연락처 검색");
-            System.out.println("5. 종료");
-            System.out.print("메뉴를 선택해주세요: ");
+            printMenu();
 
             int menu = scanner.nextInt();
             scanner.nextLine(); // 개행 문자 처리
